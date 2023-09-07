@@ -12,8 +12,9 @@ urlpatterns = [
     path("play", views.play, name="play"),
     path("news", views.news, name="news"),
     path("learn", views.learn, name="learn"),
-
-    path("social/users", views.user_list, name="users"),
-    path("social/forums", views.forums, name="forums"),
+    path("forums", views.forums, name="forums"),
+    path("forums/<int:id>", views.forum_thread, name="forum_thread"),
+    
+    path("leaderboards", views.leaderboards, name="leaderboards"),
 
 ]

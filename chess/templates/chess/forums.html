@@ -1,8 +1,19 @@
 {% extends "chess/layout.html" %}
 
 {% block body %}
-    <div style="margin-left: 35px;">
-        <h1>Forum Hub</h1>
-        <p>For forum in forums</p>
+    <div class="mainDiv">
+        <h1>Forum Hub</h1><br>
+
+        <div>
+            <h5>New Thread Button</h5>
+            <p>This will take you to new_thread url</p>
+        </div><br>
+
+        <p>Category Select...</p>
+        <h5>List of open threads</h5>
+        {% for thread in threads %}
+            <a href="{% url 'forum_thread' id=thread.id %}"><p>{{ thread }}</p></a>
+        {% endfor %}
+        
     </div>
 {% endblock %}

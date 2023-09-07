@@ -6,6 +6,8 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
+from .models import Thread, Post, Category
 
 # Create your views here.
 def index(request):
@@ -74,9 +76,29 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "chess/register.html")
-    
-def user_list(request):
-    return render(request, "chess/users.html")
 
+@login_required(login_url="login")
 def forums(request):
-    return render(request, "chess/forums.html")
+    all_threads = Thread.objects.all()
+    ordered_threads = all_threads.order_by("-created_at").all()
+
+    p = Paginator(ordered_threads, 8)
+    page = request.GET.get('page')
+
+    thread_list = p.get_page(page)
+    return render(request, "chess/forums.html", {
+        'threads': thread_list,
+    })
+
+@login_required(login_url="login")
+def forum_thread(request, id):
+    thread = get_object_or_404(Thread, id=id)
+    posts = Post.objects.filter(thread=thread)
+    return render(request, "chess/forum_thread.html", {
+        'thread': thread,
+        'posts': posts
+    })
+
+@login_required(login_url="login")
+def leaderboards(request):
+    return render(request, "chess/leaderboards.html")

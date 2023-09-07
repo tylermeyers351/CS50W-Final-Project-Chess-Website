@@ -79,5 +79,9 @@
     justify-content: center;
     text-align: center;
     display: inline-block;
-
   }
+
+  .mainDiv {
+    margin-left: 35px;
+  }
+
