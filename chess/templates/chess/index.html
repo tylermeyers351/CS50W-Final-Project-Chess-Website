@@ -1,5 +1,4 @@
 {% extends "chess/layout.html" %}
-{% load static %}
 
 {% block body %}
 
@@ -9,24 +8,30 @@
             <!-- <button id="startBtn">Reset Position</button>
             <button id="flipBtn">Flip board</button> -->
         </div>
+
         <div class="right-boxes">
+            {% if user.is_authenticated %}
+
+            {% else %}
             <div class="box">
                 <h1>Play Chess on the world's #2 best site!</h1>
-                <p>Step #1 - build basic layout - done</p>
-                <p>Step #2a - build working chess board w/ game logic (chessboard.js & chess.js) - done</p>
-                <p>Step #2b - Build player vs random legal </p>
-                <p>Step #3 - build website (news, social, leaderboards, and learn)</p>
-                <p>Step #4 - build AI (chess engine & chat bot)</p>
             </div>
-        <div class="box-2">
-            <img style="margin-top: 10px" class="img-1" height="80px"  src="https://pbs.twimg.com/profile_images/1536725744029663234/GS1jjuXF_400x400.jpg">
-            <div>
-                <h6 class="right-boxes">"Puzzles are the best way to improve pattern recognition, and no site does it better."</h6>
-                <h6 class="right-boxes">- GM Hikaru Nakamura</h6>
+            <div style="display:flex;" class="box-2">
+                <img style="margin-top: 10px" class="img-1" height="80px"  src="https://pbs.twimg.com/profile_images/1536725744029663234/GS1jjuXF_400x400.jpg">
+                <div>
+                    <h6 class="right-boxes">"An excellent site with all of the tools necessary to become a grandmaster, and no site does it better."</h6>
+                    <h6 class="right-boxes">- GM Hikaru Nakamura</h6>
+                </div>
             </div>
-        </div>
-
-        <div class="box">
+            
+            <div style="display:flex;" class="box-2">
+                <img style="margin-top: 10px" class="img-1" height="80px" width="120px"  src="https://www.chess.com/bundles/web/images/faces/anna-rudolf.193d08a5.jpg">
+                <div>
+                    <h6 class="right-boxes">"TyChess.com lessons make it easy to learn to play, then challenge you to continue growing."</h6>
+                    <h6 class="right-boxes">- IM Anna Rudolf</h6>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div> 
 

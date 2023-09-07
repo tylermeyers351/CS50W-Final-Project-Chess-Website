@@ -31,11 +31,53 @@
   }
 
   .box-2 {
-    margin: 40px;
+    margin: 24px;
     display: flex;
   }
 
   .img-1 {
   border-radius: 50%; /* Adjust the value to control the roundness */
   }
-  
+
+  .fontClass {
+    color: white;
+  }
+
+  .card {
+    background-color: #BEBEBE;
+    border: red;
+    margin: 16px;
+  }
+
+  .newsTag {
+    text-decoration: none;
+    color: #101010;
+  }
+
+  .newsTag:hover {
+    text-decoration: underline; /* Underline the text when hovered */
+    color: blue;
+  }
+
+  .form-control {
+    margin-bottom: 4px;
+  }
+
+  .nameTag {
+    font-size: larger;
+    display: flex;
+    justify-content: left;
+    margin-left: 35px;
+    margin-bottom: 5px;
+  }
+
+  .buttonStyle {
+    width: 150px;
+  }
+
+  .bannerNews {
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+
+  }

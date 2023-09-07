@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %} TyChess.com {% endblock %}</title>
         
         <!-- Using latest version of bootstrap (version 5.3.1) -->
@@ -31,80 +33,66 @@
                             </a>
                             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link align-middle px-0">
-                                        <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"><strong>Home</strong></span>
+                                    <a href="/" class="nav-link align-middle px-0">
+                                        <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>Home</strong></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline"><strong>Play</strong></span> </a>
-                                    <!-- <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                        <li class="w-100">
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Bot 1</span> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Bot 2</span> </a>
-                                        </li>
-                                    </ul> -->
+                                    <a href="{% url 'play' %}" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>Play</strong></span> </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline"><strong>News</strong></span></a>
+                                    <a href="{% url 'news' %}" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>News</strong></span></a>
                                 </li>
                                 <li>
                                     <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                        <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline"><strong>Social</strong></span></a>
+                                        <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>Social</strong></span></a>
                                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                         <li class="w-100">
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                                            <a href="{% url 'users' %}" class="nav-link px-0 fontClass"> <span class="d-none d-sm-inline">Users</span></a>
                                         </li>
                                         <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                                            <a href="{% url 'forums' %}" class="nav-link px-0 fontClass"> <span class="d-none d-sm-inline">Forum Hub</span></a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline"><strong>Leaderboards</strong></span> </a>
+                                        <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>Leaderboards</strong></span> </a>
                                         <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                         <li class="w-100">
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                                            <a href="#" class="nav-link px-0 fontClass"> <span class="d-none d-sm-inline">Product</span> 1</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                            <a href="#" class="nav-link px-0 fontClass"> <span class="d-none d-sm-inline">Product</span> 2</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"><strong>Learn</strong></span> </a>
+                                    <a href="{% url 'learn' %}" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>Learn</strong></span> </a>
                                 </li>
                             </ul>
                             <hr>
-                            <div class="dropdown pb-4">
-                                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                                    <span class="d-none d-sm-inline mx-1">@mai_tai_meyers</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                                </ul>
-                            </div>
+                            {% if user.is_authenticated %}
+                                <a style="margin-bottom: 10px" href="{% url 'logout' %}"><button type="button" class="buttonStyle btn btn-danger">Logout</button></a>
+                            {% else %}
+                                <a style="margin-bottom: 10px" href="{% url 'login' %}"><button type="button" class="buttonStyle btn btn-success">Login</button></a>
+                            {% endif %}
                         </div>
                     </div>
+
+                    {% comment %} Everything that is not the sidebar {% endcomment %}
                     <div style="background-color: lightgray;" class="col py-3">
+                        
+                        {% if user.is_authenticated %}
+                        <div class="nameTag">
+                            <h5><span class="d-none d-sm-inline mx-1">User: {{ request.user }}</span></h5>
+                            <img src="https://t3.ftcdn.net/jpg/05/97/88/98/360_F_597889804_H18u5xomXqceVKiaZ6uf8IOG7g4pJmgv.jpg" alt="profile" width="30" height="30" class="rounded-circle">
+                        </div>
+                        {% endif %}
+
                         {% block body %}
 
                         {% endblock %}
