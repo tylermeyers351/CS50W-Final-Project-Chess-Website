@@ -82,23 +82,56 @@ def forums(request):
     all_threads = Thread.objects.all()
     ordered_threads = all_threads.order_by("-created_at").all()
 
-    p = Paginator(ordered_threads, 8)
+    p = Paginator(ordered_threads, 5)
     page = request.GET.get('page')
 
+    categories = Category.objects.all()
+
     thread_list = p.get_page(page)
+
     return render(request, "chess/forums.html", {
         'threads': thread_list,
+        'categories': categories
     })
 
 @login_required(login_url="login")
 def forum_thread(request, id):
     thread = get_object_or_404(Thread, id=id)
-    posts = Post.objects.filter(thread=thread)
+    all_posts = Post.objects.filter(thread=thread)
+    ordered_posts = all_posts.order_by("-created_at").all()
+
+    p = Paginator(ordered_posts, 5)
+    page = request.GET.get('page')
+
+    posts = p.get_page(page)
+
     return render(request, "chess/forum_thread.html", {
         'thread': thread,
-        'posts': posts
+        'posts': posts,
     })
 
 @login_required(login_url="login")
 def leaderboards(request):
     return render(request, "chess/leaderboards.html")
+
+def new_thread(request):
+    if request.method == "POST":
+        thread_title = request.POST["thread_title"]
+        thread_description = request.POST["thread_description"]
+        user = User.objects.get(pk=request.user.id)
+
+        category_value = request.POST.get("dropdown1")
+        category_instance = Category.objects.get(title=category_value)
+
+        thread = Thread(title=thread_title,description=thread_description, category=category_instance, created_by=user)
+        thread.save()
+        return HttpResponseRedirect(reverse("forums"))
+    
+def new_post(request, id):
+    thread = get_object_or_404(Thread, id=id)
+    if request.method == "POST":
+        post_content = request.POST["content"]
+        user = User.objects.get(pk=request.user.id)
+        post = Post(thread=thread, created_by=user, content=post_content)
+        post.save()
+        return HttpResponseRedirect(reverse("forum_thread", args=[id]))

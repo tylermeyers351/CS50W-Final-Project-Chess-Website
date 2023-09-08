@@ -1,87 +1,100 @@
-  .board-parent {
-    width: 460px;
-    margin: 0px;
-  }
+.board-parent {
+  width: 460px;
+  margin: 0px;
+}
 
-  #myBoard {
-    margin-left: 10px;
-    margin-top: 0px;
-    width: 440px;
-  }
+#myBoard {
+  margin-left: 10px;
+  margin-top: 0px;
+  width: 440px;
+}
 
-  .container {
-    display: flex;
-  }
-  
-  .left-box {
-    flex: 1;
-    margin: 20px;
-  }
-  
-  .right-boxes {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-  }
-  
-  .box {
-    flex: 1;
-    margin: 10px;
-    text-align: center;
-  }
+.container {
+  display: flex;
+}
 
-  .box-2 {
-    margin: 24px;
-    display: flex;
-  }
+.left-box {
+  flex: 1;
+  margin: 20px;
+}
 
-  .img-1 {
-  border-radius: 50%; /* Adjust the value to control the roundness */
-  }
+.right-boxes {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
 
-  .fontClass {
-    color: white;
-  }
+.box {
+  flex: 1;
+  margin: 10px;
+  text-align: center;
+}
 
-  .card {
-    background-color: #BEBEBE;
-    border: red;
-    margin: 16px;
-  }
+.box-2 {
+  margin: 24px;
+  display: flex;
+}
 
-  .newsTag {
-    text-decoration: none;
-    color: #101010;
-  }
+.img-1 {
+border-radius: 50%; /* Adjust the value to control the roundness */
+}
 
-  .newsTag:hover {
-    text-decoration: underline; /* Underline the text when hovered */
-    color: blue;
-  }
+.fontClass {
+  color: white;
+}
 
-  .form-control {
-    margin-bottom: 4px;
-  }
+.card {
+  background-color: #BEBEBE;
+  border: red;
+  margin: 16px;
+}
 
-  .nameTag {
-    font-size: larger;
-    display: flex;
-    justify-content: left;
-    margin-left: 35px;
-    margin-bottom: 5px;
-  }
+.newsTag {
+  text-decoration: none;
+  color: #101010;
+}
 
-  .buttonStyle {
-    width: 150px;
-  }
+.newsTag:hover {
+  text-decoration: underline; /* Underline the text when hovered */
+  color: blue;
+}
 
-  .bannerNews {
-    justify-content: center;
-    text-align: center;
-    display: inline-block;
-  }
+.form-control {
+  margin-bottom: 4px;
+}
 
-  .mainDiv {
-    margin-left: 35px;
-  }
+.nameTag {
+  font-size: larger;
+  display: flex;
+  justify-content: left;
+  margin-left: 35px;
+  margin-bottom: 5px;
+}
 
+.buttonStyle {
+  width: 150px;
+}
+
+.bannerNews {
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+}
+
+.mainDiv {
+  margin-left: 35px;
+}
+
+.post {
+  border-width: 1px;
+  border-style: solid;
+  border-color: darkgray;
+  border-radius: 10px;
+}
+.pagination-container {
+  position: fixed;
+  bottom: 0;
+  left: 110px;
+  width: 100%;
+  z-index: 999;
+}

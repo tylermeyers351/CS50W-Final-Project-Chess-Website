@@ -2,18 +2,57 @@
 
 {% block body %}
     <div class="mainDiv">
-        <h1>Forum Hub</h1><br>
+        <h1>Forum Hub</h1>
 
-        <div>
-            <h5>New Thread Button</h5>
-            <p>This will take you to new_thread url</p>
-        </div><br>
+        <div  id="newButton">
+            <button onclick="changeDisplay()" style="margin-bottom: 10px;" type="button" class="buttonStyle btn btn-dark">New Thread</button>
+        </div>
 
-        <p>Category Select...</p>
-        <h5>List of open threads</h5>
-        {% for thread in threads %}
-            <a href="{% url 'forum_thread' id=thread.id %}"><p>{{ thread }}</p></a>
-        {% endfor %}
-        
+        <div style="padding: 24px; display: none;" id="newForm" class="post">
+            <h5>New Thread</h5>
+            <form action="{% url 'new_thread' %}" method="post">
+                {% csrf_token %}
+                
+                <select style="margin: 5px 0px;" id="dropdown1" name="dropdown1">
+                    <option value="" disabled selected>Categories</option>
+                    {% for category in categories%}
+                        <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+                
+                <textarea name="thread_title" class="form-control" placeholder="Title..." style="height: 10px;"></textarea>
+                <textarea name="thread_description" class="form-control" placeholder="Discussion..." style="height: 160px;"></textarea>
+                <input style="margin-top: 4px;" type="submit" class="btn btn-dark" value="Post"/>
+            </form>
+        </div>
+
+        <div id="threadsDisplay">
+            <h3>List of open threads</h3>
+            <select style="margin: 5px 0px;" id="dropdown2" name="dropdown2">
+                <option value="" disabled selected>Categories</option>
+                {% for category in categories%}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            {% for thread in threads %}
+                <a href="{% url 'forum_thread' id=thread.id %}"><p>{{ thread }}</p></a>
+            {% endfor %}
+        </div>
+
+        <div id="pagination" class="pagination-container">
+            <nav aria-label="Page navigation example">
+                <ul style="display: flex; justify-content: center;"class="pagination">
+                    {% if threads.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ threads.previous_page_number }}">Previous</a></li>
+                    {% endif %}
+                        <li style="color: blue;" class="page-item"><strong><a class="page-link">{{ threads.number }}</a></strong></li>
+                    {% if threads.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ threads.next_page_number }}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ threads.paginator.num_pages }}">Last &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
     </div>
 {% endblock %}

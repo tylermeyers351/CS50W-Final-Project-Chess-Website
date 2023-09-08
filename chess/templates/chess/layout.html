@@ -11,14 +11,17 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-        <!-- Load in project specific css and js --> 
-        <link href="{% static 'chess/css/styles.css' %}" rel="stylesheet">
-        <script type="module" src="{% static 'chess/js/index.js' %}" defer></script>
-
         <!-- Chessboard.js library (including jQuery javascript library) -->
         <link href="{% static 'chess/css/chessboard.css' %}" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
         <script src="{% static 'chess/js/chessboard.js' %}"></script>
+
+        <!-- Load in project specific css and js --> 
+        <link href="{% static 'chess/css/styles.css' %}" rel="stylesheet">
+        <script type="module" src="{% static 'chess/js/chess_logic.js' %}"></script>
+        <script src="{% static 'chess/js/index.js' %}"></script>
+
+        <link rel="icon" type="image/x-icon" href="{% static 'chess/tm.png' %}">
 
     </head>
 
@@ -53,10 +56,10 @@
                                     <a href="{% url 'leaderboards' %}" class="nav-link px-0 align-middle">
                                         <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>Leaderboards</strong></span></a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="{% url 'learn' %}" class="nav-link px-0 align-middle">
                                         <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline fontClass"><strong>Learn</strong></span> </a>
-                                </li>
+                                </li> -->
                             </ul>
                             <hr>
                             {% if user.is_authenticated %}

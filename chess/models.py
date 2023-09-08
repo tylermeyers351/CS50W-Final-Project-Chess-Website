@@ -34,7 +34,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.created_by.username} posted in '{self.thread.title}' at '{self.thread.created_at.strftime('%m/%d/%Y, %H:%M:%S')}'"
+        return f"{self.created_by.username} posted in '{self.thread.title}' at '{self.created_at.strftime('%m/%d/%Y, %H:%M:%S')}'"
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

@@ -4,13 +4,46 @@
     <div class="mainDiv">
         <br>
         <h5>{{ thread }}</h5><br>
-        <p> Post something here...</p>
-        <p> Posts below... </p>
-        {% for post in posts %}
-            <div style="border:1px solid black;;">
-                <p>{{ post }}</p>
-                <p>{{ post.content }}</p>
-            </div>
-        {% endfor %}
+        
+        <div id="newButton">
+            <button onclick="changeDisplay()" style="margin-bottom: 10px;" type="button" class="buttonStyle btn btn-dark">New Post</button>
+        </div>
+
+        <div style="display:none;" id="newForm">
+            <h5>New Post</h5>
+            <form action="{% url 'new_post' id=thread.id %}" method="post">
+                {% csrf_token %}
+                <textarea name="content" class="form-control" placeholder="Discussion..." style="height: 160px;"></textarea>
+                <input style="margin-top: 4px;" type="submit" class="btn btn-dark" value="Post"/>
+            </form>
+        </div>
+
+        <div id="threadsDisplay">
+        </div>
+
+        <div>
+            {% for post in posts %}
+                <div style="border:1px solid black;;">
+                    <p>{{ post }}</p>
+                    <p>{{ post.content }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="pagination" class="pagination-container">
+            <nav aria-label="Page navigation example">
+                <ul style="display: flex; justify-content: center;"class="pagination">
+                    {% if posts.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
+                    {% endif %}
+                        <li style="color: blue;" class="page-item"><strong><a class="page-link">{{ posts.number }}</a></strong></li>
+                    {% if posts.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">Last &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
     </div>
 {% endblock %}

@@ -14,6 +14,8 @@ urlpatterns = [
     path("learn", views.learn, name="learn"),
     path("forums", views.forums, name="forums"),
     path("forums/<int:id>", views.forum_thread, name="forum_thread"),
+    path("new_thread", views.new_thread, name="new_thread"),
+    path("new_post/<int:id>", views.new_post, name="new_post"),
     
     path("leaderboards", views.leaderboards, name="leaderboards"),
 
