@@ -5,6 +5,7 @@ from datetime import datetime
 # Forum Category
 class Category(models.Model):
     title = models.CharField(max_length=64)
+    short_title = models.CharField(max_length=64, null=True)
 
     def __str__(self):
         return self.title

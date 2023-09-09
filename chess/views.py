@@ -82,12 +82,13 @@ def forums(request):
     all_threads = Thread.objects.all()
     ordered_threads = all_threads.order_by("-created_at").all()
 
-    p = Paginator(ordered_threads, 5)
-    page = request.GET.get('page')
+    # Commenting out pagination code. (Keep just in case).
+    # p = Paginator(ordered_threads, 5)
+    # page = request.GET.get('page')
 
     categories = Category.objects.all()
 
-    thread_list = p.get_page(page)
+    thread_list = ordered_threads #p.get_page(page)
 
     return render(request, "chess/forums.html", {
         'threads': thread_list,
@@ -100,10 +101,11 @@ def forum_thread(request, id):
     all_posts = Post.objects.filter(thread=thread)
     ordered_posts = all_posts.order_by("-created_at").all()
 
-    p = Paginator(ordered_posts, 5)
-    page = request.GET.get('page')
+    # Commenting out pagination code. (Keep just in case).
+    # p = Paginator(ordered_posts, 5)
+    # page = request.GET.get('page')
 
-    posts = p.get_page(page)
+    posts = ordered_posts # p.get_page(page)
 
     return render(request, "chess/forum_thread.html", {
         'thread': thread,

@@ -18,5 +18,4 @@ urlpatterns = [
     path("new_post/<int:id>", views.new_post, name="new_post"),
     
     path("leaderboards", views.leaderboards, name="leaderboards"),
-
 ]
