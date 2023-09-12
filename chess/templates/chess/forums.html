@@ -37,10 +37,10 @@
                 <section class="{{ thread.category.short_title }}">
                     <div class="threadLink">
                             <div style="display: flex; justify-content: space-between;">
-                                <p style="font-size: smaller; margin: 2px;"> Category: {{ thread.category.title }} </p>
+                                <p style="font-size: smaller; margin: 2px;"> Category: {{ thread.category.title }} - Posted by {{ thread.created_by }}</p>
                                 <p style="font-size: smaller; margin: 2px; text-align: right;"> Replies: {{ thread.post_count }}</p>
                             </div>
-                            <a href="{% url 'forum_thread' id=thread.id %}"><h6> {{ thread.title }} by {{ thread.created_by }}</h6></a>
+                            <h6> <a href="{% url 'forum_thread' id=thread.id %}">{{ thread.title }}</a> </h6>
                             <p style="margin: 6px 0px;"> {{ thread.description }} </p>
                             <p style="font-size: smaller; margin: 0px;"> {{ thread.created_at }}</p>
                     </div>

@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from .models import Thread, Post, Category
+from .scrape import articles
 
 # Create your views here.
 def index(request):
@@ -19,7 +20,7 @@ def play(request):
 
 @login_required(login_url="login")
 def news(request):
-    return render(request, "chess/news.html")
+    return render(request, "chess/news.html", {'articles': articles})
 
 @login_required(login_url="login")
 def learn(request):

@@ -1,40 +1,20 @@
 {% extends "chess/layout.html" %}
 
 {% block body %}
-    <a class="bannerNews" href="https://www.chess.com/events/info/2023-speed-chess-championship#fullOverview"><img width="97%" src="https://images.chesscomfiles.com/uploads/ad_image/16105.ca30c68a.png"></img></a>
-
-    <div class="card-group">
-      <div class="card">
-        <a class="newsTag" href="https://www.chess.com/news/view/carlsen-to-play-2023-world-cup">
-          <img src="https://images.chesscomfiles.com/uploads/v1/news/1239231.3f497876.668x375o.28cc5eb6f4f0.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Carlsen Goes For First World Cup Win</h5>
-            <p class="card-text">Five-time world champion Magnus Carlsen will be gunning for an...</p>
-        </a>
-          <p class="card-text"><small class="text-body-secondary">Last updated 4 hours ago</small></p>
-        </div>
+    <div class="mainDiv">
+      <h1>News Hub</h1>
+      
+      <div>
+      {% for article in articles %}
+        <p> {{ article.title }}</p>
+        <p> {{ article.preview }}</p>
+        <p> {{ article.image_url }}</p>
+        <p> {{ article.author }}</p>
+        <p> {{ article.time }}</p>
+        <p> {{ article.link }}</p><br>
+      {% endfor %}
       </div>
-      <div class="card">
-          <a class="newsTag" href="https://www.chess.com/news/view/named-and-shamed-the-players-sanctioned-by-us-chess">
-            <img src="https://images.chesscomfiles.com/uploads/v1/news/1245513.c10e2d0f.668x375o.f4bfd996ec71.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">US Chess Releases List Of Sanctioned Players</h5>
-              <p class="card-text">The US Chess Federation has published a list of members who have been...</p>
-          </a>
-          <p class="card-text"><small class="text-body-secondary">Last updated 1 day ago</small></p>
-        </div>
-        
-      </div>
-      <div class="card">
-        <a class="newsTag" href="https://www.chess.com/news/view/julius-baer-generation-cup-named-as-next-champions-chess-tour-event">
-          <img src="https://images.chesscomfiles.com/uploads/v1/news/1257219.a1f89db5.668x375o.448e6e7046a6.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Julius Baer Generation Cup Named As Next</h5>
-            <p class="card-text">With the fourth leg of the $2 million Champions Chess Tour ending in a...</p>
-        </a>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 days ago</small></p>
-        </div>
-      </div>
+    
     </div>
     
 {% endblock %}

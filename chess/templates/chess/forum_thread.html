@@ -3,7 +3,16 @@
 {% block body %}
     <div class="mainDiv">
         <br>
-        <h5>{{ thread }}</h5><br>
+        <h5>Thread: {{thread.title }} </h5>
+        <div class="threadLink">
+            <div style="display: flex; justify-content: space-between;">
+                <p style="font-size: smaller; margin: 2px;"> Category: {{ thread.category.title }} - Posted by {{ thread.created_by }}</p>
+                <p style="font-size: smaller; margin: 2px; text-align: right;"> Replies: {{ thread.post_count }}</p>
+            </div>
+            <h6> <a href="{% url 'forum_thread' id=thread.id %}">{{ thread.title }}</a> </h6>
+            <p style="margin: 6px 0px;"> {{ thread.description }} </p>
+            <p style="font-size: smaller; margin: 0px;"> {{ thread.created_at }}</p>
+        </div>
         
         <div id="newButton">
             <button onclick="changeDisplay()" style="margin-bottom: 10px;" type="button" class="buttonStyle btn btn-dark">New Post</button>
@@ -23,10 +32,11 @@
 
         <div>
             {% for post in posts %}
-                <div style="border:1px solid black;;">
-                    <p>{{ post }}</p>
-                    <p>{{ post.content }}</p>
-                </div>
+            <div class="threadLink">
+                <p style="margin: 6px 0px; font-size: smaller;"><strong> {{ post.created_by }}</strong></p>
+                <p style="margin: 6px 0px;"> {{ post.content }} </p>
+                <p style="font-size: smaller; margin: 0px;"> {{ post.created_at }}</p>
+            </div>
             {% endfor %}
         </div>
 
