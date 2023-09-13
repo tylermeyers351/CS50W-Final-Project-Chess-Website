@@ -34,10 +34,11 @@ def scrape_chess_news(url):
 
     return articles
 
-# Call function.
+# Call function. (Articles is passed to views.py).
 url = 'https://www.chess.com/articles'
 articles = scrape_chess_news(url)
 
+# For testing
 # for idx, article in enumerate(chess_news, 1):
 #     print(f"Article {idx}:")
 #     print(f"Title: {article['title']}")

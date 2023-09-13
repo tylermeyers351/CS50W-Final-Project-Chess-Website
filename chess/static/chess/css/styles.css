@@ -113,3 +113,24 @@ border-radius: 50%; /* Adjust the value to control the roundness */
   padding: 12px 20px; 
   width: 60vw;
 }
+
+.articleContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Add spacing between each article */
+  border: 1px solid darkgrey; /* Set the border width and color */
+  border-radius: 10px;   /* Set the border-radius for rounded corners */
+  margin: 10px 0px; 
+  padding: 12px 20px; 
+}
+
+.imageContainer {
+  flex: 0 0 auto; /* Fix the width of the image container */
+  margin-right: 10px; /* Add spacing between image and content */
+}
+
+.contentContainer {
+  flex: 1; /* Allow the content to grow and take remaining space */
+}
+
+/*

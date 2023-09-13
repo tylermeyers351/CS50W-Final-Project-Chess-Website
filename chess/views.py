@@ -22,10 +22,6 @@ def play(request):
 def news(request):
     return render(request, "chess/news.html", {'articles': articles})
 
-@login_required(login_url="login")
-def learn(request):
-    return render(request, "chess/learn.html")
-
 # Function utilized from CS50w's 'network' assignment.
 def login_view(request):
     if request.method == "POST":

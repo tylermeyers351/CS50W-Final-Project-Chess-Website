@@ -11,7 +11,7 @@ urlpatterns = [
 
     path("play", views.play, name="play"),
     path("news", views.news, name="news"),
-    path("learn", views.learn, name="learn"),
+    
     path("forums", views.forums, name="forums"),
     path("forums/<int:id>", views.forum_thread, name="forum_thread"),
     path("new_thread", views.new_thread, name="new_thread"),

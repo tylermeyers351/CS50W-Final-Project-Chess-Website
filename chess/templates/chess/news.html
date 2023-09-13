@@ -5,14 +5,20 @@
       <h1>News Hub</h1>
       
       <div>
-      {% for article in articles %}
-        <p> {{ article.title }}</p>
-        <p> {{ article.preview }}</p>
-        <p> {{ article.image_url }}</p>
-        <p> {{ article.author }}</p>
-        <p> {{ article.time }}</p>
-        <p> {{ article.link }}</p><br>
-      {% endfor %}
+        {% for article in articles %}
+        <div class="articleContainer">
+          <div class="imageContainer">
+            <img width="360px" src="{{ article.image_url }}">
+          </div>
+          <div class="contentContainer">
+            <h4><a href="{{ article.link }}">{{ article.title }}</a></h4>
+            <p style="font-size: smaller; margin: 10px 0px;">Posted by {{ article.author }}</p>
+            <p style="margin: 6px 0px;">{{ article.preview }}</p>
+            <p style="font-size: smaller; margin: 10px 0px;">{{ article.time }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        
       </div>
     
     </div>
