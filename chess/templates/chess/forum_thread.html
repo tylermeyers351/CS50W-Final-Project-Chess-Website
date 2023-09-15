@@ -2,14 +2,16 @@
 
 {% block body %}
     <div class="mainDiv">
-        <br>
+
+        <a href="{% url 'forums' %}"><button type="button" style="margin: 16px 0px;" class="btn btn-dark">&larr;</button></a>
+
         <h5>Thread: {{thread.title }} </h5>
         <div class="threadLink">
             <div style="display: flex; justify-content: space-between;">
                 <p style="font-size: smaller; margin: 2px;"> Category: {{ thread.category.title }} - Posted by {{ thread.created_by }}</p>
                 <p style="font-size: smaller; margin: 2px; text-align: right;"> Replies: {{ thread.post_count }}</p>
             </div>
-            <h6> <a href="{% url 'forum_thread' id=thread.id %}">{{ thread.title }}</a> </h6>
+            <h6>{{ thread.title }}</a> </h6>
             <p style="margin: 6px 0px;"> {{ thread.description }} </p>
             <p style="font-size: smaller; margin: 0px;"> {{ thread.created_at }}</p>
         </div>
@@ -24,6 +26,7 @@
                 {% csrf_token %}
                 <textarea name="content" class="form-control" placeholder="Discussion..." style="height: 160px;"></textarea>
                 <input style="margin-top: 4px;" type="submit" class="btn btn-dark" value="Post"/>
+                <button style="margin-top: 4px;" type="button" onclick="changeDisplayCancel()" class="btn btn-dark"> Cancel Post </button>
             </form>
         </div>
 
@@ -35,25 +38,17 @@
             <div class="threadLink">
                 <p style="margin: 6px 0px; font-size: smaller;"><strong> {{ post.created_by }}</strong></p>
                 <p style="margin: 6px 0px;"> {{ post.content }} </p>
-                <p style="font-size: smaller; margin: 0px;"> {{ post.created_at }}</p>
+                
+                <div style="display: flex; justify-content: space-between;">
+                    <p style="font-size: smaller; margin: 0px;"> {{ post.created_at }}</p>
+                    
+                    {% if request.user == post.created_by %}
+                        <a href="{% url 'delete_post' id=post.id %}"><p style="font-size: smaller; margin: 2px; text-align: right;"> Delete </p></a>
+                    {% endif %}
+                
+                </div>
             </div>
             {% endfor %}
         </div>
-
-        {% comment %} <div id="pagination" class="pagination-container">
-            <nav aria-label="Page navigation example">
-                <ul style="display: flex; justify-content: center;"class="pagination">
-                    {% if posts.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
-                    {% endif %}
-                        <li style="color: blue;" class="page-item"><strong><a class="page-link">{{ posts.number }}</a></strong></li>
-                    {% if posts.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">Next</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">Last &raquo;</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div> {% endcomment %}
     </div>
 {% endblock %}

@@ -2,14 +2,20 @@ function changeDisplay() {
     let button = document.getElementById("newButton")
     let form = document.getElementById("newForm")
     let threads = document.getElementById("threadsDisplay")
-    let pagination = document.getElementById("pagination")
-
-    console.log(button, form, threads, pagination)
 
     button.style.display = 'none';
     form.style.display = 'block';
     threads.style.display = 'none';
-    pagination.style.display = 'none';
+}
+
+function changeDisplayCancel() {
+    let button = document.getElementById("newButton")
+    let form = document.getElementById("newForm")
+    let threads = document.getElementById("threadsDisplay")
+
+    button.style.display = 'block';
+    form.style.display = 'none';
+    threads.style.display = 'block';
 }
 
 function filterThreads() {
@@ -88,7 +94,7 @@ function getLeaders(gameType, idNum) {
 
         // Add player information to the HTML string
         html += `<div class="playerLink">
-                    <a class="newsTag leaderCard" href="${url}">
+                    <a class="newsTag leaderCard" href="${url}" target="_blank">
                         <h5 style="text-align: left;">#${i + 1}</h5>
                         <h6 style="text-align: center;">${name}</h6>
                         <h6 style="text-align: right;">Elo: ${elo}</h6>
@@ -142,7 +148,7 @@ function getStreamers() {
 
         // Add player information to the HTML string
         html += `<div class="playerLink">
-                    <a class="newsTag leaderCard" href="${stream_url}">
+                    <a class="newsTag leaderCard" href="${stream_url}" target="_blank">
                         <h5 style="text-align: left;">#${i + 1}</h5>
                         <h6 style="text-align: center;">${username}</h6>
                         <img height="40px" style="text-align: right;";" src="${image_url}">

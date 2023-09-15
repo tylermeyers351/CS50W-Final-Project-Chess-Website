@@ -17,5 +17,8 @@ urlpatterns = [
     path("new_thread", views.new_thread, name="new_thread"),
     path("new_post/<int:id>", views.new_post, name="new_post"),
     
-    path("leaderboards", views.leaderboards, name="leaderboards"),
+    path("delete_thread/<int:id>", views.delete_thread, name="delete_thread"),
+    path("delete_post/<int:id>", views.delete_post, name="delete_post"),
+    
+    path("leaderboards", views.leaderboards, name="leaderboards")
 ]

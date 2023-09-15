@@ -134,3 +134,16 @@ def new_post(request, id):
         post = Post(thread=thread, created_by=user, content=post_content)
         post.save()
         return HttpResponseRedirect(reverse("forum_thread", args=[id]))
+
+def delete_thread(request, id):
+    thread = get_object_or_404(Thread, id=id)
+    thread.delete()
+    return HttpResponseRedirect(reverse("forums"))
+
+def delete_post(request, id):
+    post = get_object_or_404(Post, id=id)
+
+    thread_id = post.thread.id
+
+    post.delete()
+    return HttpResponseRedirect(reverse("forum_thread", args=[thread_id]))

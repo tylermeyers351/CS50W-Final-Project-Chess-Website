@@ -12,12 +12,13 @@
         </div>
 
         <div class="right-boxes">
-            {% if user.is_authenticated %}
-
-            {% else %}
+            
             <div class="box">
                 <p style="font-size: 90px; font-weight: 650;">TyChess.com</p>
             </div>
+            {% if user.is_authenticated %}
+
+            {% else %}
             <div class="box">
                 <h3>Play Chess on the World's #2 Best Site!</h3>
             </div>

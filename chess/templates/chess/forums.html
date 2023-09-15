@@ -8,7 +8,8 @@
             <button onclick="changeDisplay()" style="margin-bottom: 10px;" type="button" class="buttonStyle btn btn-dark">New Thread</button>
         </div>
 
-        <div style="padding: 24px; display: none;" id="newForm" class="newForm">
+        <div style="padding-top: 10px; display: none;" id="newForm" class="newForm">
+
             <h5>New Thread</h5>
             <form action="{% url 'new_thread' %}" method="post">
                 {% csrf_token %}
@@ -22,8 +23,10 @@
                 
                 <textarea name="thread_title" class="form-control" placeholder="Title..." style="height: 10px;"></textarea>
                 <textarea name="thread_description" class="form-control" placeholder="Discussion..." style="height: 160px;"></textarea>
-                <input style="margin-top: 4px;" type="submit" class="btn btn-dark" value="Post"/>
+                <input style="margin-top: 4px;" type="submit" class="btn btn-dark" value="Post Thread"/>
+                <button style="margin-top: 4px;" type="button" onclick="changeDisplayCancel()" class="btn btn-dark"> Cancel Thread </button>
             </form>
+            
         </div>
 
         <div id="threadsDisplay">
@@ -42,28 +45,18 @@
                             </div>
                             <h6> <a href="{% url 'forum_thread' id=thread.id %}">{{ thread.title }}</a> </h6>
                             <p style="margin: 6px 0px;"> {{ thread.description }} </p>
-                            <p style="font-size: smaller; margin: 0px;"> {{ thread.created_at }}</p>
+                            
+                            <div style="display: flex; justify-content: space-between;">
+                                <p style="font-size: smaller; margin: 0px;"> {{ thread.created_at }}</p>
+                                
+                                {% if request.user == thread.created_by %}
+                                    <a href="{% url 'delete_thread' id=thread.id %}"><p style="font-size: smaller; margin: 2px; text-align: right;"> Delete </p></a>
+                                {% endif %}
+                            
+                            </div>
                     </div>
                 </section>
             {% endfor %}
         </div>
-
-        
-
-        {% comment %} <div id="pagination" class="pagination-container">
-            <nav aria-label="Page navigation example">
-                <ul style="display: flex; justify-content: center;"class="pagination">
-                    {% if threads.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ threads.previous_page_number }}">Previous</a></li>
-                    {% endif %}
-                        <li style="color: blue;" class="page-item"><strong><a class="page-link">{{ threads.number }}</a></strong></li>
-                    {% if threads.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{ threads.next_page_number }}">Next</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ threads.paginator.num_pages }}">Last &raquo;</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div> {% endcomment %}
     </div>
 {% endblock %}

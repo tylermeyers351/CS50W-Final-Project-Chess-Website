@@ -40,3 +40,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         self.thread.update_post_count()
+
+    def delete(self, *args, **kwargs):
+        super().delete(*args, **kwargs)
+        self.thread.update_post_count()
