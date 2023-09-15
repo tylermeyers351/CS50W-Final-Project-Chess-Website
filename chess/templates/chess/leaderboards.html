@@ -2,7 +2,47 @@
 
 {% block body %}
     <div class="mainDiv">
-        <h1>Leaderboards</h1>
-        <p>Insert leaders here (Chess.com API) - Rapid, Blitz, Bullet</p>
+        <h1>Leader Hub</h1>
+        <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <div id="leaderboard1"></div>
+              </div>
+              <div class="col">
+                <div id="leaderboard2"></div>
+              </div>
+              <div class="col">
+                <div id="leaderboard3"></div>
+              </div>
+            </div>
+        </div><br>
+
+        <div style="border-width: 1px; border-style:solid; border-color: darkgray;"></div><br>
+
+        <div class="container text-center">
+            <div class="row">
+              <div style="font-size: 90px; font-weight: 650;" class="col">
+                <h1>Streaming</h1>
+                <h1>Today</h1>
+              </div>
+              <div class="col">
+                <div id="streaming"></div>
+              </div>
+              <div class="col">
+                
+              </div>
+            </div>
+        </div><br>
+
     </div>
+    
+
+    <script>
+        getLeaders('live_rapid', 1)
+        getLeaders('live_blitz', 2)
+        getLeaders('live_bullet', 3)
+        getStreamers()
+    </script>
+
+    
 {% endblock %}

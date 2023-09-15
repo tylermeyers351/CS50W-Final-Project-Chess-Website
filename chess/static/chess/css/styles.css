@@ -133,4 +133,19 @@ border-radius: 50%; /* Adjust the value to control the roundness */
   flex: 1; /* Allow the content to grow and take remaining space */
 }
 
-/*
+.playerLink {
+  margin-bottom: 10px; /* Add spacing between each article */
+  border: 1px solid darkgrey; /* Set the border width and color */
+  border-radius: 10px;   /* Set the border-radius for rounded corners */
+  margin: 4px 4px; 
+  padding: 4px 4px; 
+}
+
+.col {
+  width: 346px;
+}
+
+.leaderCard {
+  display: flex;
+  justify-content: space-between;
+}
