@@ -1,6 +1,12 @@
 {% extends "chess/layout.html" %}
 
 {% block body %}
+      {% if user.is_authenticated %}
+        <div class="nameTag">
+            <h5><span class="mx-1">User: {{ request.user }}</span></h5>
+            <img src="https://t3.ftcdn.net/jpg/05/97/88/98/360_F_597889804_H18u5xomXqceVKiaZ6uf8IOG7g4pJmgv.jpg" alt="profile" width="30" height="30" class="rounded-circle">
+        </div>
+      {% endif %}
     <div class="mainDiv">
       <h1>News Hub</h1>
       
@@ -8,7 +14,7 @@
         {% for article in articles %}
         <div class="articleContainer">
           <div class="imageContainer">
-            <img width="100%" src="{{ article.image_url }}">
+            <img class="d-none d-md-block" width="100%" src="{{ article.image_url }}">
           </div>
           <div class="contentContainer">
             <h4><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h4>

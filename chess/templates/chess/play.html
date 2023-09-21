@@ -1,18 +1,26 @@
 {% extends "chess/layout.html" %}
 
 {% block body %}
+    {% if user.is_authenticated %}
+        <div class="nameTag">
+            <h5><span class="mx-1">User: {{ request.user }}</span></h5>
+            <img src="https://t3.ftcdn.net/jpg/05/97/88/98/360_F_597889804_H18u5xomXqceVKiaZ6uf8IOG7g4pJmgv.jpg" alt="profile" width="30" height="30" class="rounded-circle">
+        </div>
+    {% endif %}
 
-    <div class="tm-container">
-        <div class="left-box">
-            <div>
-                <div id="myBoard" style="width: 500px"></div>
+    <div class="row vh-86">
+
+        <div class="col-12 col-lg-9">
+            <div class="mx-auto" style="width: 60%;">
+                <div id="myBoard" style="width: 100%;"></div>
             </div>
         </div>
-
-        <div class="right-boxes">
-            <div class="box">
-                <h1>Choose a bot to face</h1>
-            </div>  
+        <div style="text-align: center;" class="col-12 col-lg-2">
+            <h5>Choose a bot to face</h5>
+            <h5>Choose a bot to face</h5>
+            <h5>Choose a bot to face</h5>
+        </div>
+        <div class=" d-none d-lg-block col-lg-1">
         </div>
     </div> 
 

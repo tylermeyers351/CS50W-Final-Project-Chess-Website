@@ -32,7 +32,7 @@
             <div class="row vh-100 overflow-auto"> 
                 
                 <!-- Start of sidebar html -->
-                <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
+                <div class="col-12 col-sm-3 col-lg-2 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
                     <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
                         
                         <!-- TyChess Brand Heading -->
@@ -80,20 +80,18 @@
                 <!-- Main webpage (non-sidebar) -->
                 <div class="col d-flex flex-column h-100">
                     <main class="row">
-                        <div class="col pt-4">
-                            {% if user.is_authenticated %}
-                            <div class="nameTag">
-                                <h5><span class="d-none d-sm-inline mx-1">User: {{ request.user }}</span></h5>
-                                <img src="https://t3.ftcdn.net/jpg/05/97/88/98/360_F_597889804_H18u5xomXqceVKiaZ6uf8IOG7g4pJmgv.jpg" alt="profile" width="30" height="30" class="rounded-circle">
-                            </div>
-                            {% endif %}
+                        <div class="col pt-1">
                             {% block body %}
 
                             {% endblock %}
                         </div>
                     </main>
+                    <footer style="margin-left: 35px;" class="row py-4 mt-auto">
+                        <div class="col-md-6">
+                            <strong><p>TyChess.com &trade;</p></strong>
+                        </div>
+                    </footer>
                 </div>
-            
             </div>
         </div>
     </body>

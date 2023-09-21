@@ -54,9 +54,11 @@ if (document.getElementById('myBoard')) {
   }
 
   board = Chessboard('myBoard', config)
+  $(window).resize(board.resize)
 }
 
 // Only runs the chess script if the element exists within the html.
 if (document.getElementById('staticBoard')) {
   var board1 = Chessboard('staticBoard', 'start')
+  $(window).resize(board1.resize)
 }

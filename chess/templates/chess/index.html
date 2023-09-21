@@ -3,43 +3,29 @@
 {% block body %}
 
     <div class="row">
-        <div class="col-8">
-            <div id="staticBoard" style="width: 500px"></div>
+        <div style="width: 50px;" class="d-none d-lg-block col-lg-1">
         </div>
 
-        <div class="col-4">
+        <!-- Top Left -->
+        <div class="col-12 col-lg-5">
             
-            <div class="box">
-                <p style="font-size: 90px; font-weight: 650;">TyChess.com</p>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="box">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-            </div>
-            <div class="box">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-            </div>
-            {% else %}
-            <div class="box">
-                <h3>Play Chess on the World's #2 Best Site!</h3>
-            </div>
-            <div style="display:flex;" class="box-2">
-                <img style="margin-top: 10px" class="img-1" height="80px"  src="https://pbs.twimg.com/profile_images/1536725744029663234/GS1jjuXF_400x400.jpg">
-                <div>
-                    <h6 class="right-boxes">"An excellent site with all of the tools necessary to become a grandmaster, and no site does it better."</h6>
-                    <h6 class="right-boxes">- GM Hikaru Nakamura</h6>
-                </div>
-            </div>
-            
-            <div style="display:flex;" class="box-2">
-                <img style="margin-top: 10px" class="img-1" height="80px" width="120px"  src="https://www.chess.com/bundles/web/images/faces/anna-rudolf.193d08a5.jpg">
-                <div>
-                    <h6 class="right-boxes">"TyChess.com lessons make it easy to learn to play, then challenge you to continue growing."</h6>
-                    <h6 class="right-boxes">- IM Anna Rudolf</h6>
-                </div>
-            </div>
-            {% endif %}
+            <strong><p style="font-size: 4em; font-weight: 1000;">&nbsp;</p></strong>
+            <strong><p style="font-size: 4em; font-weight: 1000;">TyChess.com</p></strong>
+            <img style="border-radius: 20px;" class="img-fluid" alt="Responsive Image" src="https://t3.ftcdn.net/jpg/05/63/07/40/360_F_563074013_yvhM7L342BwGlTutkISiyZ5RFmBMGnaL.jpg">
         </div>
-    </div> 
+
+        <div style="width: 50px;" class="d-none d-lg-block col-lg-1">
+        </div>
+
+        <!-- Top Right -->
+        <div class="d-none d-lg-block col-lg-5">
+            <strong><p style="color:lightgray; font-size: 4em; font-weight: 10;">TyChess.com</p></strong>
+            <img style="border-radius: 20px; transform: scaleX(-1); filter: invert(100%);" class="img-fluid" alt="Responsive Image" src="https://t3.ftcdn.net/jpg/05/63/07/40/360_F_563074013_yvhM7L342BwGlTutkISiyZ5RFmBMGnaL.jpg">
+        </div>
+
+        <div style="width: 50px;" class="d-none d-lg-block col-lg-1">
+        </div>
+
+    </div>
 
 {% endblock %}
