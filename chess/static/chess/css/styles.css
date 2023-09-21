@@ -1,3 +1,9 @@
+html, body {
+  background-color: lightgray;
+  margin: 0;
+  padding: 0;
+}
+
 .board-parent {
   width: 460px;
   margin: 0px;
@@ -9,29 +15,27 @@
   width: 440px;
 }
 
-.container {
-  display: flex;
-}
-
 .left-box {
   flex: 1;
-  margin: 20px;
+  margin: 35px;
 }
 
 .right-boxes {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  flex: 1;
+  padding: 0px;
 }
 
 .box {
   flex: 1;
-  margin: 10px;
+  margin: 0px;
   text-align: center;
 }
 
 .box-2 {
   margin: 24px;
+  flex: 1;
   display: flex;
 }
 
@@ -41,12 +45,6 @@ border-radius: 50%; /* Adjust the value to control the roundness */
 
 .fontClass {
   color: white;
-}
-
-.card {
-  background-color: #BEBEBE;
-  border: red;
-  margin: 16px;
 }
 
 .newsTag {
@@ -67,8 +65,7 @@ border-radius: 50%; /* Adjust the value to control the roundness */
   font-size: larger;
   display: flex;
   justify-content: left;
-  margin-left: 35px;
-  margin-bottom: 5px;
+  margin: 10px 35px;
 }
 
 .buttonStyle {
@@ -102,8 +99,8 @@ border-radius: 50%; /* Adjust the value to control the roundness */
 .sticky-sidebar {
   position: sticky;
   top: 0;
-  height: 100vh        /* calc(116vh - 70px);  Adjust the height as needed */
-  /* overflow-y: auto; Add a scrollbar if the content overflows */
+  height: 100vh;       /* calc(116vh - 70px);  Adjust the height as needed */
+  overflow: auto; /* Add a scrollbar if the content overflows */
 }
 
 .threadLink {
@@ -115,6 +112,7 @@ border-radius: 50%; /* Adjust the value to control the roundness */
 }
 
 .articleContainer {
+  min-width: 300px;
   display: flex;
   align-items: center;
   margin-bottom: 20px; /* Add spacing between each article */
@@ -125,11 +123,15 @@ border-radius: 50%; /* Adjust the value to control the roundness */
 }
 
 .imageContainer {
+  max-width: 300px;
+  height: auto;
+  width: auto;
   flex: 0 0 auto; /* Fix the width of the image container */
   margin-right: 10px; /* Add spacing between image and content */
 }
 
 .contentContainer {
+  min-width: 200px;
   flex: 1; /* Allow the content to grow and take remaining space */
 }
 
@@ -139,10 +141,6 @@ border-radius: 50%; /* Adjust the value to control the roundness */
   border-radius: 10px;   /* Set the border-radius for rounded corners */
   margin: 4px 4px; 
   padding: 4px 4px; 
-}
-
-.col {
-  width: 346px;
 }
 
 .leaderCard {

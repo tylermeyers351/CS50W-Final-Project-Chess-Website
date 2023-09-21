@@ -40,6 +40,7 @@ function onDrop(source, target) {
 // update the board position after the piece snap for castling, en passant, pawn promotion
 function onSnapEnd() {
   board.position(game.fen())
+  console.log(game.fen())
 }
 
 // Only runs the chess script if the element exists within the html.
@@ -53,4 +54,9 @@ if (document.getElementById('myBoard')) {
   }
 
   board = Chessboard('myBoard', config)
+}
+
+// Only runs the chess script if the element exists within the html.
+if (document.getElementById('staticBoard')) {
+  var board1 = Chessboard('staticBoard', 'start')
 }

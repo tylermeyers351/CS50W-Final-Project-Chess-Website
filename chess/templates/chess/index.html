@@ -2,22 +2,23 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="left-box">
-            <div style="margin: 20px 0px;">
-                <div id="myBoard" style="width: 460px"></div>
-                <!-- <button id="startBtn">Reset Position</button>
-                <button id="flipBtn">Flip board</button> -->
-            </div>
+    <div class="row">
+        <div class="col-8">
+            <div id="staticBoard" style="width: 500px"></div>
         </div>
 
-        <div class="right-boxes">
+        <div class="col-4">
             
             <div class="box">
                 <p style="font-size: 90px; font-weight: 650;">TyChess.com</p>
             </div>
             {% if user.is_authenticated %}
-
+            <div class="box">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            </div>
+            <div class="box">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            </div>
             {% else %}
             <div class="box">
                 <h3>Play Chess on the World's #2 Best Site!</h3>
