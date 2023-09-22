@@ -12,14 +12,30 @@
 
         <div class="col-12 col-lg-9">
             <div class="mx-auto" style="width: 60%;">
+                <!-- Chessboard logic in chess_logic.js -->
                 <div id="myBoard" style="width: 100%;"></div>
             </div>
         </div>
-        <div style="text-align: center;" class="col-12 col-lg-2">
-            <h5>Choose a bot to face</h5>
-            <h5>Choose a bot to face</h5>
-            <h5>Choose a bot to face</h5>
+
+        <div style="text-align: center;" class="post col-12 col-lg-2 mx-auto">
+            <h3>Choose a bot to face</h3>
+
+            <!-- Buttons to select the bot to play -->
+            <button id="easyBotBtn" style="margin: 5px 5px;" type="button" class= "btn btn-success w-85"> Easy Bot (Random) </button>
+            <button id="mediumBotBtn" style="margin: 5px 5px;" type="button" class= "btn btn-success w-85"> Medium Bot (Minimax) </button>
+            <button id="hardBotBtn" style="margin: 5px 5px;" type="button" class= "btn btn-success w-85"> Hard Bot (Stockfish) </button>
+            
+            <div> Current mode selected: </div>
+            <strong><div id="modeSelected"></div></strong>
+            
+            <!-- Buttons that edit board -->
+            <button id="showOrientationBtn">Show orientation in console</button>
+            <button id="flipOrientationBtn">Flip orientation</button>
+            <br />
+            <button id="whiteOrientationBtn">White orientation</button>
+            <button id="blackOrientationBtn">Black orientation</button>
         </div>
+
         <div class=" d-none d-lg-block col-lg-1">
         </div>
     </div> 

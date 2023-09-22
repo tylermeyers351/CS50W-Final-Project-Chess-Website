@@ -1,2 +1,3 @@
-# Ignore virtual environment
+# Ignore virtual environment and ignore stockfish chess engine
 venv/
+stockfish/

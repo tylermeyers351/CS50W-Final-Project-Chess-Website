@@ -108,7 +108,7 @@ border-radius: 50%; /* Adjust the value to control the roundness */
   border-radius: 10px;   /* Set the border-radius for rounded corners */
   margin: 10px 0px; 
   padding: 12px 20px; 
-  width: 60vw;
+  width: 85%;
 }
 
 .articleContainer {

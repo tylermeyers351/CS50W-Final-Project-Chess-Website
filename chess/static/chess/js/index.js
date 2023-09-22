@@ -34,15 +34,6 @@ function filterThreads() {
     });
 }
 
-// Add an event listener to the category dropdown
-document.addEventListener('DOMContentLoaded', function() {
-    // Add an event listener to the category dropdown
-    const dropdown2 = document.getElementById('dropdown2');
-    if (dropdown2) { // Check if the element exists before adding the listener
-        dropdown2.addEventListener('change', filterThreads);
-    }
-});
-
 function getLeaders(gameType, idNum) {
     // Define the API URL
     const apiUrl = 'https://api.chess.com/pub/leaderboards';
@@ -163,3 +154,37 @@ function getStreamers() {
         console.error(error);
     });
 }
+
+// Add an event listener to the category dropdown
+document.addEventListener('DOMContentLoaded', function() {
+    // Add an event listener to the category dropdown
+    const dropdown2 = document.getElementById('dropdown2');
+    if (dropdown2) { // Check if the element exists before adding the listener
+        dropdown2.addEventListener('change', filterThreads);
+    }
+
+    // Buttons for 'Play' html. 
+    $(document).ready(function () {
+    // Initially, hide the board div
+        $("#myBoard").show();
+
+        // Handle button clicks
+        $("#easyBotBtn").click(function () {
+            $("#myBoard").show();  // Show the board
+            $("#modeSelected").text("Easy Mode");
+        });
+
+        $("#mediumBotBtn").click(function () {
+            $("#myBoard").hide();  // Hide the board
+            $("#modeSelected").text("Medium Mode");
+            // Add logic to handle Medium Bot (Minimax) here
+        });
+
+        $("#hardBotBtn").click(function () {
+            $("#myBoard").hide();  // Hide the board
+            $("#modeSelected").text("Hard Mode");
+            // Add logic to handle Hard Bot (Stockfish) here
+    });
+    });
+});
+

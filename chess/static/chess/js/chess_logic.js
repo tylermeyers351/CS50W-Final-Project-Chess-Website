@@ -20,6 +20,9 @@ function makeRandomMove() {
   var randomIdx = Math.floor(Math.random() * possibleMoves.length)
   game.move(possibleMoves[randomIdx])
   board.position(game.fen())
+
+  let mySound = new Audio('static/chess/move-self.mp3')
+  mySound.play()
 }
 
 function onDrop(source, target) {
@@ -33,8 +36,11 @@ function onDrop(source, target) {
   // illegal move
   if (move === null) return 'snapback'
 
+  let mySound = new Audio('static/chess/move-self.mp3')
+  mySound.play()
+
   // make random legal move for black
-  window.setTimeout(makeRandomMove, 250)
+  window.setTimeout(makeRandomMove, 1000)
 }
 
 // update the board position after the piece snap for castling, en passant, pawn promotion
@@ -55,10 +61,17 @@ if (document.getElementById('myBoard')) {
 
   board = Chessboard('myBoard', config)
   $(window).resize(board.resize)
-}
-
-// Only runs the chess script if the element exists within the html.
-if (document.getElementById('staticBoard')) {
-  var board1 = Chessboard('staticBoard', 'start')
-  $(window).resize(board1.resize)
+  $('#showOrientationBtn').on('click', function () {
+    console.log('Board orientation is: ' + board.orientation())
+  })
+  
+  $('#flipOrientationBtn').on('click', board.flip)
+  
+  $('#whiteOrientationBtn').on('click', function () {
+    board.orientation('white')
+  })
+  
+  $('#blackOrientationBtn').on('click', function () {
+    board.orientation('black')
+  })
 }
