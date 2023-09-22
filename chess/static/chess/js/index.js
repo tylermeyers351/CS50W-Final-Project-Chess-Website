@@ -171,18 +171,18 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle button clicks
         $("#easyBotBtn").click(function () {
             $("#myBoard").show();  // Show the board
-            $("#modeSelected").text("Easy Mode");
+            $("#modeSelected").text("Easy Mode ");
         });
 
         $("#mediumBotBtn").click(function () {
             $("#myBoard").hide();  // Hide the board
-            $("#modeSelected").text("Medium Mode");
+            $("#modeSelected").text("Medium Mode ");
             // Add logic to handle Medium Bot (Minimax) here
         });
 
         $("#hardBotBtn").click(function () {
             $("#myBoard").hide();  // Hide the board
-            $("#modeSelected").text("Hard Mode");
+            $("#modeSelected").text("Hard Mode ");
             // Add logic to handle Hard Bot (Stockfish) here
     });
     });

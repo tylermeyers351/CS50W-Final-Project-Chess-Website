@@ -1,16 +1,21 @@
 import { Chess } from './chess.js';
 
-var board = null
-var game = new Chess()
+var board = null // chessboard.js representation of chessboard instance.
+var game = new Chess() // chess.js representation of state of chess game.
 
+// chessboard.js function. Fires when a piece is picked up. 
 function onDragStart(source, piece, position, orientation) {
   // do not pick up pieces if the game is over
   if (game.isGameOver()) return false
 
-  // only pick up pieces for White
-  if (piece.search(/^b/) !== -1) return false
+  // Check the orientation and piece color
+  if ((orientation === 'white' && piece.search(/^b/) !== -1) ||
+      (orientation === 'black' && piece.search(/^w/) !== -1)) {
+    return false; // Prevent picking up pieces of the wrong color
+}
 }
 
+// Utilizes chess.js to randomly select from all possible moves.
 function makeRandomMove() {
   var possibleMoves = game.moves()
 
@@ -25,6 +30,7 @@ function makeRandomMove() {
   mySound.play()
 }
 
+// chessboard.js function.
 function onDrop(source, target) {
   // see if the move is legal
   var move = game.move({
@@ -34,7 +40,9 @@ function onDrop(source, target) {
   })
 
   // illegal move
-  if (move === null) return 'snapback'
+  if (move === null) {
+    return 'snapback'
+  }
 
   let mySound = new Audio('static/chess/move-self.mp3')
   mySound.play()
@@ -61,17 +69,37 @@ if (document.getElementById('myBoard')) {
 
   board = Chessboard('myBoard', config)
   $(window).resize(board.resize)
-  $('#showOrientationBtn').on('click', function () {
-    console.log('Board orientation is: ' + board.orientation())
+
+  $('#setStartBtn').on('click', function () {
+    board.start();
+    game = new Chess();
   })
   
-  $('#flipOrientationBtn').on('click', board.flip)
-  
   $('#whiteOrientationBtn').on('click', function () {
-    board.orientation('white')
+    var config = {
+      draggable: true,
+      position: 'start',
+      onDragStart: onDragStart,
+      onDrop: onDrop,
+      onSnapEnd: onSnapEnd,
+      orientation: 'white'
+    }
+  
+    board = Chessboard('myBoard', config)
+    game = new Chess();
   })
   
   $('#blackOrientationBtn').on('click', function () {
-    board.orientation('black')
+    var config = {
+      draggable: true,
+      position: 'start',
+      onDragStart: onDragStart,
+      onDrop: onDrop,
+      onSnapEnd: onSnapEnd,
+      orientation: 'black'
+    }
+  
+    board = Chessboard('myBoard', config)
+    game = new Chess();
   })
 }

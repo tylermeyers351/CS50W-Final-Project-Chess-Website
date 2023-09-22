@@ -147,3 +147,7 @@ border-radius: 50%; /* Adjust the value to control the roundness */
   display: flex;
   justify-content: space-between;
 }
+
+.btn {
+  margin: 5px 5px;
+}
