@@ -155,7 +155,7 @@ function getStreamers() {
     });
 }
 
-// Add an event listener to the category dropdown
+// Add an event listener to the category dropdown.
 document.addEventListener('DOMContentLoaded', function() {
     // Add an event listener to the category dropdown
     const dropdown2 = document.getElementById('dropdown2');
@@ -170,21 +170,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Handle button clicks
         $("#easyBotBtn").click(function () {
-            $("#myBoard").show();  // Show the board
-            $("#modeSelected").text("Easy Mode ");
+            $("#modeSelected").text("Easy Mode");
         });
 
         $("#mediumBotBtn").click(function () {
-            $("#myBoard").hide();  // Hide the board
-            $("#modeSelected").text("Medium Mode ");
+            $("#modeSelected").text("Easy Mode ");
             // Add logic to handle Medium Bot (Minimax) here
         });
 
         $("#hardBotBtn").click(function () {
-            $("#myBoard").hide();  // Hide the board
-            $("#modeSelected").text("Hard Mode ");
+            $("#modeSelected").text("Easy Mode ");
             // Add logic to handle Hard Bot (Stockfish) here
     });
     });
 });
-
