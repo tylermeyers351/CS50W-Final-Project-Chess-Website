@@ -1,5 +1,7 @@
 # Chess Website - CS50w Final Project
 
+Project completion: September 2023  
+
 This project is a full-stack chess website created as the final project for CS50w. The goal of this project was to showcase the author's capabilities after a year of programming, solidify knowledge from CS50w and CS50ai, and expand into a full-stack application. The project's focus was on building a chess website with various features, including a chessboard, forums, news, leaderboards, and AI chess gameplay. The goal was not to simply showcase what the author learned, but to further expand those skills.  
 See demonstration here -> https://youtu.be/SLcckZxvSYw
 
