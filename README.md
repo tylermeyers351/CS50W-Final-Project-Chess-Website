@@ -4,7 +4,7 @@ Project completion: September 2023
 
 ## Summary
 
-This project is a full-stack chess website created as the final project for CS50w. The goal of this project was to showcase the author's capabilities after a year of programming, solidify knowledge from CS50w and CS50ai, and expand into a full-stack application. The project's focus was on building a chess website with various features, including a chessboard, forums, news, leaderboards, and AI chess gameplay. The goal was not to simply showcase what the author learned, but to further expand those skills.  
+This project is a full-stack chess website created as the final project for CS50w. The goal of this project was to showcase my capabilities after a year of programming, solidify knowledge from CS50w and CS50ai, and expand into a full-stack application. The project's focus was on building a chess website with various features, including a chessboard, forums, news, leaderboards, and AI chess gameplay. The goal was not to simply showcase I learned, but to further expand those skills.  
 See demonstration here -> https://youtu.be/SLcckZxvSYw
 
 ## Distinctiveness and Complexity
@@ -21,11 +21,11 @@ The project satisfies the distinctiveness and complexity requirements by encompa
 
 5. **News**: A web scraper is utilized to fetch news articles from chess.com, demonstrating the ability to gather and format external data. This component was improved by implementing web scraping for news articles.
 
-6. **Leaderboards**: The project initially aimed to incorporate the python chessdotcom API to display player rankings, showing the author's ability to integrate external APIs. However, this was eventually implemented in JavaScript due to API-related issues.
+6. **Leaderboards**: The project initially aimed to incorporate the python chessdotcom API to display player rankings, showing my ability to integrate external APIs. However, this was eventually implemented in JavaScript due to API-related issues.
 
 7. **Version Control and Virtual Environment**: Best practices in version control using Git and virtual environment management are emphasized to maintain project integrity and manage dependencies effectively.
 
-8. **AI Implementation**: The author plans to introduce AI chess gameplay, including their own chess engine and chatbots. This represents a complex and challenging addition to the project.
+8. **AI Implementation**: I plans to introduce AI chess gameplay, including their own chess engine and chatbots. This represents a complex and challenging addition to the project.
 
 ## Key Files
 
@@ -56,10 +56,6 @@ To run the application, follow these steps:
 5. Run the Django development server using `python manage.py runserver`.
 
 6. Access the website in your web browser at `http://localhost:8000`.
-
-## Additional Information
-
-- The project is not merely a technical endeavor but a personal achievement, symbolizing the author's progression from a novice programmer to a capable full-stack developer. It showcases adaptability, problem-solving skills, and an unwavering determination to turn ambitious ideas into reality.
 
 
 
