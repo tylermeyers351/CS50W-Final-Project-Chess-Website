@@ -39,8 +39,6 @@ The project satisfies the distinctiveness and complexity requirements by encompa
 
 - **views.py**: This file defines view functions for the chess website, handling user authentication, rendering templates, and providing functionality for key features like playing chess, viewing news, and participating in forums.
 
-- **README.md**: This file provides an overview of the project, its components, and how to run the application.
-
 ## How to Run the Application
 
 To run the application, follow these steps:
